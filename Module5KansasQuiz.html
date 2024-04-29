@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz</title>
+  </head>
+  <body>
+    <h1>Kansas Quiz</h1>
+    <form id="quizForm">
+      <h3>Question 1:</h3>
+      <p>What is the capital city of Kansas?</p>
+      <input type="radio" name="q1" value="Topeka" /> Topeka<br />
+      <input type="radio" name="q1" value="Wichita" /> Wichita<br />
+      <input type="radio" name="q1" value="Kansas City" /> Kansas City<br /><br />
+
+      <h3>Question 2:</h3>
+      <p>Which river forms the eastern boundary of Kansas?</p>
+      <input type="radio" name="q2" value="Mississippi River" /> Mississippi
+      River<br />
+      <input type="radio" name="q2" value="Arkansas River" /> Arkansas River<br />
+      <input type="radio" name="q2" value="Missouri River" /> Missouri River<br /><br />
+
+      <h3>Question 3:</h3>
+      <p>Which car tycoon was raised in Ellis Kansas?</p>
+      <input type="radio" name="q3" value="Henry Ford" /> Henry Ford<br />
+      <input type="radio" name="q3" value="William Durant" /> William Durant<br />
+      <input type="radio" name="q3" value="Walter P. Chrysler" /> Walter P.
+      Chrysler<br /><br />
+
+      <h3>Question 4:</h3>
+      <p>What is the nickname of Kansas?</p>
+      <input type="radio" name="q4" value="The Sunshine State" /> The Sunshine
+      State<br />
+      <input type="radio" name="q4" value="The Prairie State" /> The Prairie
+      State<br />
+      <input type="radio" name="q4" value="The Sunflower State" /> The Sunflower
+      State<br /><br />
+
+      <h3>Question 5:</h3>
+      <p>Which pioneer of aviation was born in Wichita, KS"?</p>
+      <input type="radio" name="q5" value="Amelia Earhart" /> Amelia Earhart<br />
+      <input type="radio" name="q5" value="Orvile Wright" /> Orville Wright<br />
+      <input type="radio" name="q5" value="Charles Lindbergh" /> Charles
+      Lindbergh<br /><br />
+
+      <button type="button" onclick="calculateScore()">Submit</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+      function calculateScore() {
+        // Get user's answers
+        var q1Answer = document.querySelector('input[name="q1"]:checked')
+        var q2Answer = document.querySelector('input[name="q2"]:checked')
+        var q3Answer = document.querySelector('input[name="q3"]:checked')
+        var q4Answer = document.querySelector('input[name="q4"]:checked')
+        var q5Answer = document.querySelector('input[name="q5"]:checked')
+
+        // Initialize score
+        var score = 0
+
+        // Check answers and calculate score
+        if (q1Answer && q1Answer.value === 'Topeka') {
+          score += 1
+        }
+        if (q2Answer && q2Answer.value === 'Missouri River') {
+          score += 1
+        }
+        if (q3Answer && q3Answer.value === 'Walter P. Chrysler') {
+          score += 1
+        }
+        if (q4Answer && q4Answer.value === 'The Sunflower State') {
+          score += 1
+        }
+        if (q5Answer && q5Answer.value === 'Amelia Earhart') {
+          score += 1
+        }
+
+        // Display score
+        var resultContainer = document.getElementById('result')
+        resultContainer.innerHTML =
+          '<h2>Your score: ' + score + ' out of 5</h2>'
+      }
+    </script>
+  </body>
+</html>
